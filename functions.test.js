@@ -1,3 +1,4 @@
+
 const functions = require('./functions');
 
 test('adds 2 plus 2 equal 4', () => {
@@ -28,4 +29,17 @@ test('should be under 1600', () => {
   const load1 = 800;
   const load2 = 700;
   expect(load1 + load2).toBeLessThanOrEqual(1600)
-})
+});
+
+test('coco should be in the list', () => {
+  const listOfPogi = ['coco', 'bryan'];
+  expect(listOfPogi).toContain('coco')
+});
+
+test('user fetch name should be leanne graham', () => {
+  expect.assertions(1);
+  return functions.fethUser()
+    .then(data => {
+      expect(data.name).toEqual('Leanne Graham')
+    })
+});
